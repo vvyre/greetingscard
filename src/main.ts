@@ -31,6 +31,7 @@ for (const w of [...tier1, ...tier2, ...tier3]) {
 }
 
 const footer = document.createElement('footer')
+const author = document.createElement('div')
 const input = document.createElement('input')
 input.setAttribute('type', 'text')
 input.setAttribute('placeholder', '작성자')
@@ -51,8 +52,7 @@ for (const w of tier4) {
         item.el.dataset.selected = 'true'
         item.el.classList.remove('excluded')
       } else {
-        delete item.el.dataset.selected
-        item.el.classList.add('excluded')
+        item.el.remove()
       }
     }
   })
@@ -64,8 +64,7 @@ const btn = document.createElement('button')
 btn.setAttribute('type', 'button')
 btn.classList.add('complete-btn')
 btn.innerText = '완성하기'
-footer.append(btn)
-
+frag.append(btn)
 frag.append(footer)
 
 const loading = document.createElement('div')
@@ -86,7 +85,9 @@ btn.onclick = async () => {
     btn.style.visibility = 'hidden'
     app.prepend(loading)
     await saveCard()
+
     loading.remove()
+    btn.style.visibility = 'visible'
     status = 'finished'
     btn.innerText = '다시 쓰기'
   } else {
