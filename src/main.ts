@@ -37,7 +37,6 @@ input.setAttribute('placeholder', '작성자')
 input.classList.add('username')
 
 const footerContainerElements = document.createElement('div')
-let signature: string | null = null
 const tier4Refs: Array<{ w: string; el: HTMLElement }> = []
 
 for (const w of tier4) {
@@ -46,8 +45,6 @@ for (const w of tier4) {
 
   onClick(() => {
     if (status !== 'completed') return
-
-    signature = w
 
     for (const item of tier4Refs) {
       if (item.w === w) {
