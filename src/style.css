@@ -253,3 +253,19 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+.kakao-overlay {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  left: 0;
+  width: 100dvw;
+  height: 100dvh;
+  background-color: rgba(0, 0, 0, 1);
+  color: white;
+  z-index: 100;
+  font-size: 1.25rem;
+}
