@@ -45,7 +45,7 @@ export function App() {
               {showT4 ? (
                 <input
                   class="username"
-                  style={color}
+                  style={{ ...color, outline: `1px dotted ${color.color}` }}
                   value={username}
                   placeholder="작성자"
                   onInput={(e: any) => setUsername(e.currentTarget.value)}

@@ -44,7 +44,7 @@ export function Controller() {
     }
   }
 
-  const buttonText = status === 'editing' ? '작성' : status === 'completed' ? '카드 저장' : '다시 작성'
+  const buttonText = status === 'editing' ? '선택 완료' : status === 'completed' ? '카드 저장' : '다시 쓰기'
 
   return (
     <>

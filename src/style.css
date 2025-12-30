@@ -147,15 +147,17 @@ footer {
 
 .username {
   display: hidden;
-  text-align: right;
-  font-size: clamp(16px, calc(4.8 * var(--u)), 48px);
-  width: clamp(5rem, calc(18 * var(--u)), 9rem);
-  padding-inline: calc(0.75 * var(--u));
+  text-align: center;
+  font-size: clamp(16px, calc(4.8 * var(--u)), 42px);
+  width: clamp(12rem, calc(18 * var(--u)), 16rem);
+  padding-inline: 1rem;
   color: rgba(255, 255, 255, 1);
   margin: 0;
   border: none;
   background-color: transparent;
   font-weight: var(--weight);
+  border-radius: 300%;
+  outline-offset: 0;
 }
 .username:focus {
   outline: none;
@@ -168,8 +170,8 @@ footer {
   cursor: pointer;
   border: none;
   position: fixed;
-  right: 0;
-  bottom: 0;
+  right: 1rem;
+  bottom: 1rem;
   border-radius: 100%;
   width: calc(20 * var(--u));
   height: calc(12 * var(--u));
