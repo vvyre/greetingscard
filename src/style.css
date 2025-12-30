@@ -30,8 +30,6 @@
   line-height: 1;
   font-weight: var(--weight);
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -55,12 +53,11 @@ body {
   overflow: hidden;
 }
 
-#app {
+.frame {
   display: grid;
   place-items: center;
   width: 100dvw;
   height: 100dvh;
-  background-color: #242424;
 }
 
 @media (prefers-color-scheme: light) {
@@ -113,22 +110,23 @@ body {
   padding-inline: calc(0.75 * var(--u));
   padding-block: calc(1.2 * var(--u));
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.4);
+  opacity: 0.6;
   transition:
     color 0.3s cubic-bezier(0.19, 1, 0.22, 1),
     opacity 0.3s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .word:hover {
-  color: rgba(255, 255, 255, 1);
+  opacity: 1;
 }
 
 .word[data-selected] {
-  color: rgba(255, 255, 255, 1);
+  opacity: 1;
 }
 
 .excluded {
   opacity: 0;
+  visibility: hidden;
   cursor: default;
 }
 
@@ -166,26 +164,55 @@ footer {
   cursor: pointer;
   border: none;
   position: fixed;
-  left: calc(4 * var(--u));
-  bottom: calc(4 * var(--u));
-  border-radius: 5rem;
-  width: calc(18 * var(--u));
-  height: calc(18 * var(--u));
-  font-size: calc(3.2 * var(--u));
+  right: 0;
+  bottom: 0;
+  border-radius: 100%;
+  width: calc(20 * var(--u));
+  height: calc(12 * var(--u));
+  font-size: 1rem;
   font-weight: 600;
+  background-color: transparent;
+  -webkit-backdrop-filter: blur(3px) saturate(1.4);
+  backdrop-filter: blur(2px) saturate(1.4);
+  transition: transform 5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.change-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  position: fixed;
+  left: calc(6 * var(--u));
+  bottom: calc(10 * var(--u));
+  border-radius: 200%;
+  width: calc(12 * var(--u));
+  height: calc(8 * var(--u));
+  font-weight: 600;
+  background-color: transparent;
+  -webkit-backdrop-filter: blur(3px) saturate(1.4);
+  backdrop-filter: blur(3px) saturate(1.4);
 }
 
 .info-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+  font-family: monospace;
   cursor: pointer;
   border: none;
   position: fixed;
   right: calc(4 * var(--u));
-  bottom: calc(4 * var(--u));
-  border-radius: 5rem;
-  width: 2.5rem;
-  height: 2.5rem;
-  font-size: 1rem;
+  top: calc(2 * var(--u));
+  border-radius: 100%;
+  width: calc(12 * var(--u));
+  height: calc(8 * var(--u));
   font-weight: 600;
+  background-color: transparent;
+  -webkit-backdrop-filter: blur(3px) saturate(1.4);
+  backdrop-filter: blur(3px) saturate(1.4);
 }
 
 h1,
