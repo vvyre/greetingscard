@@ -265,9 +265,26 @@ a {
   width: 100dvw;
   height: 100dvh;
   background-color: rgba(0, 0, 0, 0.75);
+  -webkit-backdrop-filter: blur(3px) saturate(1.4);
+  backdrop-filter: blur(4px) saturate(1.4);
   color: white;
   z-index: 100;
-  font-size: 0.9rem;
-  line-height: 1.5;
+  font-size: 1rem;
+  line-height: 1.75;
   text-align: center;
+}
+
+.kakao-overlay-btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.kakao-overlay-btn:active {
+  background-color: rgba(0, 0, 0, 0.4);
 }

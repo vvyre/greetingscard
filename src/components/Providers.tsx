@@ -5,6 +5,7 @@ import { useMemo, useState, type Dispatch } from 'preact/hooks'
 import { loadWords } from '../utils/words'
 import type { SetStateAction } from 'preact/compat'
 import { OverlayProvider } from 'overlay-kit'
+import { useKakakoBrowser } from '../utils/useKakaoBrowser'
 
 export type Theme = {
   theme: (typeof colors)[number]
@@ -52,7 +53,7 @@ export function Providers({ children }: { children: ComponentChildren }) {
   const [selected, setSelected] = useState<Set<string>>(() => new Set<string>())
   const [username, setUsername] = useState('')
   const [chosenTier4, setChosenTier4] = useState<string | null>(null)
-
+  useKakakoBrowser()
   return (
     <WordsContext.Provider value={words}>
       <ThemeContext.Provider value={{ theme: color, layoutSize: { w, h }, refresh }}>

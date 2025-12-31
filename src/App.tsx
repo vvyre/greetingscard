@@ -1,22 +1,9 @@
-import { useContext, useEffect } from 'preact/hooks'
+import { useContext } from 'preact/hooks'
 import { Word } from './components/Word'
 import { EditorContext, ThemeContext, WordsContext, WritingStatusContext } from './components/Providers'
 import { Controller } from './components/Controller'
-import { isKakaoInApp } from './utils/isKakao'
-import { overlay } from 'overlay-kit'
 
 export function App() {
-  useEffect(() => {
-    if (isKakaoInApp()) {
-      overlay.open(() => (
-        <div class="kakao-overlay">
-          <span>카카오톡 내장 브라우저에서는 정상적으로 작동하지 않습니다.</span>
-          <span>다른 브라우저를 이용해 주세요.</span>
-        </div>
-      ))
-    }
-  }, [])
-
   const { tier1, tier2, tier3, tier4 } = useContext(WordsContext)
   const { status, saving } = useContext(WritingStatusContext)
   const { theme: color } = useContext(ThemeContext)
