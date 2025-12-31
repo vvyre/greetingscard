@@ -10,7 +10,7 @@ import { Alert } from './Alert'
 export function Controller() {
   const { status, saving, setStatus, setSaving } = useContext(WritingStatusContext)
   const { theme: color, layoutSize, refresh } = useContext(ThemeContext)
-  const { selected, username, chosenTier4 } = useContext(EditorContext)
+  const { selected, username, chosenTier4, setChosenTier4 } = useContext(EditorContext)
   const { w, h } = layoutSize
   const [displayInfo, setDisplayInfo] = useState(false)
 
@@ -25,6 +25,7 @@ export function Controller() {
       return setStatus('completed')
     }
     if (status === 'completed' && go_back) {
+      setChosenTier4(null)
       return setStatus('editing')
     }
     if (status === 'completed') {
@@ -43,6 +44,7 @@ export function Controller() {
       }
     }
     if (status === 'finished' && go_back) {
+      setChosenTier4(null)
       return setStatus('completed')
     }
     if (status === 'finished') return window.location.reload()
