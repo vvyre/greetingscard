@@ -8,7 +8,7 @@ export function useTransform() {
       const randomX = Math.floor(Math.random() * 80) + 10
       const randomY = Math.floor(Math.random() * 80) + 10
       setMaxWH([randomX, randomY])
-    }, 3000)
+    }, 4000)
 
     return () => clearInterval(interval)
   }, [])
