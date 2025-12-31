@@ -61,7 +61,7 @@ export function App() {
                 const isChosen = chosenTier4 === w
                 const hidden = (chosenTier4 && !isChosen) || undefined
                 return (
-                  <Word hide={hidden} excluded={hidden} selected={isChosen} onClick={() => handleT4Word(w)}>
+                  <Word theme={color} hide={hidden} excluded={hidden} selected={isChosen} onClick={() => handleT4Word(w)}>
                     {w}
                   </Word>
                 )
