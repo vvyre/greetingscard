@@ -19,10 +19,13 @@ export function Controller() {
       <Alert open={isOpen} onClose={close} msg={msg} />
     ))
 
-  const onMain = async () => {
+  const onMain = async (go_back?: boolean) => {
     if (status === 'editing') {
       if (selected.size === 0) return alert('하나 이상의 말을 선택하세요')
-      setStatus('completed')
+      return setStatus('completed')
+    }
+    if (status === 'completed' && go_back) {
+      return setStatus('editing')
     }
     if (status === 'completed') {
       if (username.length < 1) return alert('작성자 이름을 입력하세요')
@@ -39,23 +42,41 @@ export function Controller() {
         alert('카드를 저장했어요')
       }
     }
-    if (status === 'finished') {
-      window.location.reload()
+    if (status === 'finished' && go_back) {
+      return setStatus('completed')
     }
+    if (status === 'finished') return window.location.reload()
   }
 
-  const buttonText = status === 'editing' ? '선택 완료' : status === 'completed' ? '카드 저장' : '다시 쓰기'
+  const buttonText = status === 'editing' ? '선택 완료' : status === 'completed' ? '저장' : '초기화'
 
   return (
     <>
-      <button
-        style={{ transform: `translate(-${w}dvw, -${h}dvh)`, color: color.color, border: `1.5px dotted ${color.color}` }}
-        class="complete-btn"
-        type="button"
-        onClick={onMain}
-        disabled={saving}>
-        {buttonText}
-      </button>
+      <div class="complete-btn-layout" style={{ transform: `translate(-${w}dvw, -${h}dvh)`, border: `1.5px dotted ${color.color}` }}>
+        {(() => {
+          switch (status) {
+            case 'editing':
+              return (
+                <>
+                  <button style={{ color: color.color }} class="complete-btn-full" type="button" onClick={() => onMain()} disabled={saving}>
+                    {buttonText}
+                  </button>
+                </>
+              )
+            default:
+              return (
+                <>
+                  <button style={{ color: color.color }} class="complete-btn" type="button" onClick={() => onMain(true)} disabled={saving}>
+                    뒤로
+                  </button>
+                  <button style={{ color: color.color }} class="complete-btn" type="button" onClick={() => onMain()} disabled={saving}>
+                    {buttonText}
+                  </button>
+                </>
+              )
+          }
+        })()}
+      </div>
       <button
         style={{ color: color.color, border: `1.5px dotted ${color.color}` }}
         class="change-btn"
