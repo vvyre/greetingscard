@@ -86,13 +86,12 @@ export function Controller() {
         })()}
       </div>
       <button
-        aria-label="색상 변경"
         style={{ color: color.color, border: `1.5px dotted ${color.color}` }}
         class="change-btn"
         type="button"
         onClick={() => refresh()}
         disabled={saving}>
-        <LoopIcon width="1.1rem" height="1.1rem" />
+        색상 변경
       </button>
       <button
         aria-label="사이트 정보 보기"
