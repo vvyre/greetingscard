@@ -91,7 +91,7 @@ export function Controller() {
         type="button"
         onClick={() => refresh()}
         disabled={saving}>
-        색상 변경
+        색 변경
       </button>
       <button
         aria-label="사이트 정보 보기"
